@@ -1,0 +1,1 @@
+import"./hoisted.DxhNsRBG.js";const t=document.getElementById("contactForm");t&&t.addEventListener("submit",e=>{e.preventDefault();const o=new FormData(t);Object.fromEntries(o),alert("Thank you for your message! We'll get back to you within 2-3 business days."),t.reset()});
