@@ -1,0 +1,234 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const pageTitle = "About Us";
+---
+
+<BaseLayout title={pageTitle} description="Learn about the Balanced Feminine Path mission and the woman behind the brand.">
+  <section class="about-hero">
+    <div class="container">
+      <span class="page-label">About</span>
+      <h1>Our Story</h1>
+      <p class="lead">
+        A sanctuary for women seeking alignment, healing, and authentic living.
+      </p>
+    </div>
+  </section>
+
+  <section class="section about-content">
+    <div class="container">
+      <div class="content-block">
+        <h2>The Beginning</h2>
+        <p>
+          Balanced Feminine Path was born from a personal journey—a path of self-discovery, 
+          healing, and ultimately, transformation. After years of navigating the complexities 
+          of modern womanhood, dealing with burnout, and searching for authentic connection, 
+          the need for a space like this became clear.
+        </p>
+        <p>
+          This isn't just another wellness blog. It's a carefully curated space where science 
+          meets soul, where ancient wisdom meets modern understanding, and where every woman 
+          can find resources that honor her unique journey.
+        </p>
+      </div>
+
+      <div class="content-block">
+        <h2>Our Philosophy</h2>
+        <p>
+          We believe in the power of the feminine—not as a limitation, but as a profound 
+          strength. The qualities often seen as "soft" or "intuitive" are actually powerful 
+          tools for navigating life: deep feeling, creative wisdom, nurturing presence, and 
+          the ability to hold space for complexity.
+        </p>
+        <p>
+          True balance isn't about doing everything perfectly or achieving some idealized 
+          state. It's about alignment—living in accordance with your values, honoring your 
+          needs, and creating a life that feels authentic and nourishing.
+        </p>
+      </div>
+
+      <div class="values-grid">
+        <div class="value-card">
+          <span class="value-icon">♡</span>
+          <h3>Compassion</h3>
+          <p>Approaching ourselves and others with kindness and understanding.</p>
+        </div>
+        <div class="value-card">
+          <span class="value-icon">☽</span>
+          <h3>Intention</h3>
+          <p>Living with purpose and making conscious choices aligned with our values.</p>
+        </div>
+        <div class="value-card">
+          <span class="value-icon">✧</span>
+          <h3>Authenticity</h3>
+          <p>Honoring our true selves without pretense or people-pleasing.</p>
+        </div>
+        <div class="value-card">
+          <span class="value-icon">❋</span>
+          <h3>Holistic Wellness</h3>
+          <p>Recognizing the connection between mind, body, and spirit.</p>
+        </div>
+      </div>
+
+      <div class="content-block">
+        <h2>What We Offer</h2>
+        <ul class="offerings-list">
+          <li>
+            <strong>Thoughtful Articles</strong> — Deep dives into topics that matter: hormonal 
+            health, mental wellness, spiritual growth, and intentional living.
+          </li>
+          <li>
+            <strong>Practical Resources</strong> — Guides, worksheets, and tools you can 
+            actually use in your daily life.
+          </li>
+          <li>
+            <strong>Community Support</strong> — A judgment-free space where women can 
+            connect, share, and grow together.
+          </li>
+          <li>
+            <strong>Holistic Approaches</strong> — Integrating conventional wisdom with 
+            natural, evidence-based practices.
+          </li>
+        </ul>
+      </div>
+
+      <div class="content-block cta-block">
+        <h2>Join the Journey</h2>
+        <p>
+          Whether you're just beginning to explore these topics or you've been on this 
+          path for years, there's a place for you here. We're so glad you're here.
+        </p>
+        <div class="cta-buttons">
+          <a href="/blog" class="btn">Explore the Blog</a>
+          <a href="/contact" class="btn btn-outline">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .about-hero {
+    background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-bg-alt) 100%);
+    padding: 5rem var(--spacing) 3rem;
+    text-align: center;
+  }
+
+  .page-label {
+    display: inline-block;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+  }
+
+  .about-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .lead {
+    font-size: 1.25rem;
+    color: var(--color-text-light);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .about-content {
+    background: var(--color-white);
+  }
+
+  .content-block {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+  }
+
+  .content-block h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-primary);
+  }
+
+  .content-block p {
+    color: var(--color-text-light);
+    margin-bottom: 1.25rem;
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 3rem auto;
+  }
+
+  .value-card {
+    text-align: center;
+    padding: 2rem;
+    background: var(--color-bg);
+    border-radius: var(--border-radius);
+  }
+
+  .value-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+  }
+
+  .value-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .value-card p {
+    font-size: 0.9375rem;
+    color: var(--color-text-light);
+  }
+
+  .offerings-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .offerings-list li {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--color-bg-alt);
+  }
+
+  .offerings-list li:last-child {
+    border-bottom: none;
+  }
+
+  .offerings-list strong {
+    color: var(--color-primary);
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .cta-block {
+    text-align: center;
+    background: var(--color-bg-alt);
+    padding: 3rem;
+    border-radius: var(--border-radius);
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .about-hero h1 {
+      font-size: 2.25rem;
+    }
+
+    .content-block h2 {
+      font-size: 1.75rem;
+    }
+  }
+</style>

@@ -1,0 +1,370 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Home" description="Balanced Feminine Path - Empowering women through holistic wellness, mindfulness, and intentional living.">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-tagline">Welcome to</span>
+      <h1>Balanced Feminine Path</h1>
+      <p class="hero-description">
+        A sanctuary for women seeking to align with their true selves through holistic wellness, 
+        mindful practices, and intentional living. Here, you are invited to embrace your journey 
+        with compassion, wisdom, and grace.
+      </p>
+      <div class="hero-actions">
+        <a href="/blog" class="btn">Explore the Blog</a>
+        <a href="/resources" class="btn btn-outline">Free Resources</a>
+      </div>
+    </div>
+    <div class="hero-decoration">
+      <span class="hero-flower">❀</span>
+    </div>
+  </section>
+
+  <!-- Mission Section -->
+  <section class="section mission-section">
+    <div class="container">
+      <div class="mission-content">
+        <span class="section-label">Our Mission</span>
+        <h2>Nurturing the Whole Woman</h2>
+        <p>
+          At Balanced Feminine Path, we believe that true wellness emerges from honoring the 
+          connection between mind, body, and spirit. Our mission is to provide thoughtful content, 
+          practical resources, and a supportive community that empowers women to live authentically.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Content -->
+  <section class="section featured-section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Begin Your Journey</h2>
+        <p>Discover articles, guides, and resources designed to support your wellness journey.</p>
+      </div>
+      <div class="featured-grid">
+        <article class="featured-card">
+          <span class="card-icon">🌿</span>
+          <h3>Holistic Wellness</h3>
+          <p>Explore natural approaches to physical, emotional, and spiritual health that honor your body's wisdom.</p>
+          <a href="/blog" class="card-link">Read More →</a>
+        </article>
+        <article class="featured-card">
+          <span class="card-icon">🧘‍♀️</span>
+          <h3>Mindfulness & Meditation</h3>
+          <p>Practical techniques and gentle guidance for cultivating presence and inner peace in daily life.</p>
+          <a href="/blog" class="card-link">Read More →</a>
+        </article>
+        <article class="featured-card">
+          <span class="card-icon">🌱</span>
+          <h3>Intentional Living</h3>
+          <p>Thoughtful approaches to creating a life aligned with your values, purpose, and deepest desires.</p>
+          <a href="/blog" class="card-link">Read More →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section class="section newsletter-section">
+    <div class="container">
+      <div class="newsletter-card">
+        <div class="newsletter-content">
+          <h2>Join Our Community</h2>
+          <p>
+            Receive weekly insights, guided meditations, and exclusive resources delivered 
+            with love directly to your inbox.
+          </p>
+          <form class="newsletter-form" action="#" method="POST">
+            <input type="email" placeholder="Enter your email address" required />
+            <button type="submit" class="btn">Subscribe</button>
+          </form>
+          <p class="newsletter-note">No spam, ever. Unsubscribe anytime.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Preview -->
+  <section class="section about-preview">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text">
+          <span class="section-label">About Us</span>
+          <h2>A Safe Space for Your Growth</h2>
+          <p>
+            Balanced Feminine Path was created from a deep desire to support women on their 
+            unique journeys toward wholeness. We understand the challenges of modern life and 
+            the importance of creating space for self-care, reflection, and transformation.
+          </p>
+          <a href="/about" class="btn btn-outline">Learn More About Us</a>
+        </div>
+        <div class="about-image">
+          <div class="image-placeholder">
+            <span>✿</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Hero Styles */
+  .hero {
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-bg-alt) 100%);
+    padding: 4rem var(--spacing);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-content {
+    max-width: 700px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-tagline {
+    display: block;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+  }
+
+  .hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-text);
+  }
+
+  .hero-description {
+    font-size: 1.25rem;
+    color: var(--color-text-light);
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .hero-decoration {
+    position: absolute;
+    right: 10%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.1;
+  }
+
+  .hero-flower {
+    font-size: 20rem;
+    color: var(--color-primary);
+  }
+
+  /* Mission Section */
+  .mission-section {
+    background: var(--color-white);
+  }
+
+  .mission-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .section-label {
+    display: inline-block;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+  }
+
+  .mission-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .mission-content p {
+    font-size: 1.125rem;
+    color: var(--color-text-light);
+  }
+
+  /* Featured Grid */
+  .featured-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .featured-card {
+    background: var(--color-white);
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 20px rgba(139, 107, 93, 0.08);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .featured-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(139, 107, 93, 0.15);
+  }
+
+  .card-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 1.5rem;
+  }
+
+  .featured-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .featured-card p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .card-link {
+    font-weight: 600;
+  }
+
+  /* Newsletter Section */
+  .newsletter-section {
+    background: var(--color-bg-alt);
+  }
+
+  .newsletter-card {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    background: var(--color-white);
+    padding: 3rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 20px rgba(139, 107, 93, 0.08);
+  }
+
+  .newsletter-content h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .newsletter-content > p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .newsletter-form {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .newsletter-form input {
+    flex: 1;
+    min-width: 250px;
+    padding: 0.875rem 1rem;
+    border: 2px solid var(--color-bg-alt);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-family: var(--font-body);
+    transition: border-color 0.3s ease;
+  }
+
+  .newsletter-form input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+  }
+
+  .newsletter-note {
+    font-size: 0.875rem;
+    color: var(--color-text-light);
+    margin-top: 1rem;
+  }
+
+  /* About Preview */
+  .about-preview {
+    background: var(--color-white);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .about-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .about-text p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .about-image {
+    display: flex;
+    justify-content: center;
+  }
+
+  .image-placeholder {
+    width: 300px;
+    height: 300px;
+    background: var(--color-bg-alt);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 6rem;
+    color: var(--color-primary);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+
+    .hero-description {
+      font-size: 1.125rem;
+    }
+
+    .hero-decoration {
+      display: none;
+    }
+
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .about-image {
+      order: -1;
+    }
+
+    .image-placeholder {
+      width: 200px;
+      height: 200px;
+      font-size: 4rem;
+    }
+  }
+</style>

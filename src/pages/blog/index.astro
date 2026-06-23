@@ -1,0 +1,183 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const posts = [
+  {
+    title: "Finding Balance in a Chaotic World",
+    excerpt: "In our fast-paced modern life, true balance isn't about perfect equilibrium—it's about intentional choices that honor all parts of ourselves.",
+    date: "June 15, 2026",
+    category: "Mindfulness",
+    slug: "finding-balance-in-chaotic-world"
+  },
+  {
+    title: "Honoring Your Menstrual Cycle",
+    excerpt: "Working with your body's natural rhythms instead of against them can transform how you feel, create, and connect.",
+    date: "June 8, 2026",
+    category: "Holistic Health",
+    slug: "honoring-your-menstrual-cycle"
+  },
+  {
+    title: "The Art of Sacred Rest",
+    excerpt: "Rest isn't a reward for productivity—it's a fundamental aspect of holistic wellness that many of us have forgotten how to do.",
+    date: "June 1, 2026",
+    category: "Self-Care",
+    slug: "art-of-sacred-rest"
+  },
+  {
+    title: "Creating a Morning Ritual That Sticks",
+    excerpt: "Discover how to design a morning practice that nourishes your body, centers your mind, and sets the tone for your entire day.",
+    date: "May 25, 2026",
+    category: "Lifestyle",
+    slug: "morning-ritual-that-sticks"
+  },
+  {
+    title: "Understanding Perimenopause",
+    excerpt: "Navigate this transformative life phase with compassion and knowledge, embracing the wisdom that comes with hormonal shifts.",
+    date: "May 18, 2026",
+    category: "Holistic Health",
+    slug: "understanding-perimenopause"
+  }
+];
+---
+
+<BaseLayout title="Blog" description="Explore articles on holistic wellness, mindfulness, and intentional living for women.">
+  <section class="blog-hero">
+    <div class="container">
+      <span class="page-label">Journal</span>
+      <h1>The Blog</h1>
+      <p class="lead">
+        Thoughtful reflections, practical wisdom, and gentle guidance for your holistic wellness journey.
+      </p>
+    </div>
+  </section>
+
+  <section class="section blog-content">
+    <div class="container">
+      <div class="posts-grid">
+        {posts.map(post => (
+          <article class="post-card">
+            <div class="post-meta">
+              <span class="post-category">{post.category}</span>
+              <span class="post-date">{post.date}</span>
+            </div>
+            <h2 class="post-title">
+              <a href={`/blog/${post.slug}`}>{post.title}</a>
+            </h2>
+            <p class="post-excerpt">{post.excerpt}</p>
+            <a href={`/blog/${post.slug}`} class="read-more">Read Article →</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .blog-hero {
+    background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-bg-alt) 100%);
+    padding: 5rem var(--spacing) 3rem;
+    text-align: center;
+  }
+
+  .page-label {
+    display: inline-block;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+  }
+
+  .blog-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .lead {
+    font-size: 1.25rem;
+    color: var(--color-text-light);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .blog-content {
+    background: var(--color-white);
+  }
+
+  .posts-grid {
+    display: grid;
+    gap: 2.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .post-card {
+    background: var(--color-bg);
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .post-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(139, 107, 93, 0.1);
+  }
+
+  .post-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+  }
+
+  .post-category {
+    color: var(--color-primary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .post-date {
+    color: var(--color-text-light);
+  }
+
+  .post-title {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+  }
+
+  .post-title a {
+    color: var(--color-text);
+    transition: color 0.3s ease;
+  }
+
+  .post-title a:hover {
+    color: var(--color-primary);
+  }
+
+  .post-excerpt {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+  }
+
+  .read-more {
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  @media (max-width: 768px) {
+    .blog-hero h1 {
+      font-size: 2.25rem;
+    }
+
+    .post-card {
+      padding: 1.5rem;
+    }
+
+    .post-title {
+      font-size: 1.5rem;
+    }
+  }
+</style>

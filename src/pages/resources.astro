@@ -1,0 +1,207 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const resources = [
+  {
+    title: "Morning Ritual Guide",
+    description: "A printable PDF guide to creating a mindful morning practice that sets the tone for your day.",
+    type: "PDF Guide",
+    icon: "☀️"
+  },
+  {
+    title: "Cycle Tracking Worksheet",
+    description: "Track your menstrual cycle phases and understand how to work with your body's natural rhythms.",
+    type: "Worksheet",
+    icon: "🌙"
+  },
+  {
+    title: "Self-Care Inventory",
+    description: "Discover what truly nourishes you with this comprehensive self-care assessment and planning tool.",
+    type: "Assessment",
+    icon: "✿"
+  },
+  {
+    title: "Guided Meditation: Grounding",
+    description: "A 15-minute audio meditation to help you find calm and presence when you need it most.",
+    type: "Audio",
+    icon: "🌿"
+  },
+  {
+    title: "Holistic Wellness Checklist",
+    description: "Evaluate your wellness across physical, emotional, mental, and spiritual dimensions.",
+    type: "Checklist",
+    icon: "❋"
+  },
+  {
+    title: "Intentional Living Journal Prompts",
+    description: "30 thoughtful prompts to guide your reflection and help you align your life with your values.",
+    type: "Journal",
+    icon: "✧"
+  }
+];
+---
+
+<BaseLayout title="Resources" description="Free holistic wellness resources including guides, worksheets, meditations, and more.">
+  <section class="resources-hero">
+    <div class="container">
+      <span class="page-label">Free Tools</span>
+      <h1>Resources</h1>
+      <p class="lead">
+        Practical tools to support your wellness journey—downloadable guides, worksheets, and guided practices.
+      </p>
+    </div>
+  </section>
+
+  <section class="section resources-content">
+    <div class="container">
+      <div class="resources-grid">
+        {resources.map(resource => (
+          <div class="resource-card">
+            <span class="resource-icon">{resource.icon}</span>
+            <span class="resource-type">{resource.type}</span>
+            <h3 class="resource-title">{resource.title}</h3>
+            <p class="resource-description">{resource.description}</p>
+            <button class="resource-btn">Coming Soon</button>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section cta-resources">
+    <div class="container">
+      <div class="cta-card">
+        <h2>Looking for Something Specific?</h2>
+        <p>
+          Have a topic you'd like to see covered? A resource you wish existed? 
+          Let us know—we'd love to hear from you.
+        </p>
+        <a href="/contact" class="btn">Request a Resource</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .resources-hero {
+    background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-bg-alt) 100%);
+    padding: 5rem var(--spacing) 3rem;
+    text-align: center;
+  }
+
+  .page-label {
+    display: inline-block;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+  }
+
+  .resources-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .lead {
+    font-size: 1.25rem;
+    color: var(--color-text-light);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .resources-content {
+    background: var(--color-white);
+  }
+
+  .resources-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .resource-card {
+    background: var(--color-bg);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .resource-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(139, 107, 93, 0.1);
+  }
+
+  .resource-icon {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .resource-type {
+    display: inline-block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--color-white);
+    background: var(--color-primary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+  }
+
+  .resource-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.75rem;
+    color: var(--color-text);
+  }
+
+  .resource-description {
+    color: var(--color-text-light);
+    font-size: 0.9375rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+
+  .resource-btn {
+    background: var(--color-bg-alt);
+    color: var(--color-text-light);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    cursor: not-allowed;
+  }
+
+  .cta-resources {
+    background: var(--color-bg-alt);
+  }
+
+  .cta-card {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    background: var(--color-white);
+    padding: 3rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 20px rgba(139, 107, 93, 0.08);
+  }
+
+  .cta-card h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+    color: var(--color-primary);
+  }
+
+  .cta-card p {
+    color: var(--color-text-light);
+    margin-bottom: 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .resources-hero h1 {
+      font-size: 2.25rem;
+    }
+  }
+</style>
