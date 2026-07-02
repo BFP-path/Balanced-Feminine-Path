@@ -9,7 +9,7 @@ const pageTitle = 'About Dr Oluwaseun Ade-Alade';
     <div class="container hero-grid">
       <div class="hero-copy">
         <span class="page-label">About</span>
-        <h1>Meet Dr Oluwaseun Ade-Alade</h1>
+        <h1 class="hero-title">Meet Dr Oluwaseun Ade-Alade</h1>
         <p class="lead">
           I created Balanced Feminine Path to give women a steady place for reflection, practical support, and a more grounded way to care for themselves.
         </p>
@@ -187,6 +187,11 @@ const pageTitle = 'About Dr Oluwaseun Ade-Alade';
     margin-bottom: 1rem;
   }
 
+  .hero-title {
+    white-space: nowrap;
+    font-size: clamp(2rem, 3.3vw, 3.4rem);
+  }
+
   .lead {
     font-size: 1.18rem;
     color: var(--color-text-light);
@@ -340,6 +345,10 @@ const pageTitle = 'About Dr Oluwaseun Ade-Alade';
     .hero-grid,
     .content-grid {
       grid-template-columns: 1fr;
+    }
+
+    .hero-title {
+      white-space: normal;
     }
   }
 </style>
