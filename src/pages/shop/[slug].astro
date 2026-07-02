@@ -1,0 +1,322 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { products } from '../../data/products';
+
+export function getStaticPaths() {
+  return products.map((product) => ({
+    params: { slug: product.slug },
+    props: { product },
+  }));
+}
+
+const { product } = Astro.props;
+const relatedProducts = products.filter((item) => item.slug !== product.slug).slice(0, 3);
+const purchaseHref = product.paymentLink ?? '#checkout-pending';
+const purchaseLabel = product.paymentLink ? `Buy now for ${product.price}` : 'Payment link pending';
+---
+
+<BaseLayout title={product.title} description={product.promise}>
+  <section class="product-hero" style={`--product-accent: ${product.accent}`}>
+    <div class="container hero-grid">
+      <div>
+        <a href="/shop" class="back-link">← Back to the shop</a>
+        <span class="page-label">Digital product</span>
+        <h1>{product.title}</h1>
+        <p class="lead">{product.promise}</p>
+        <p class="intro-copy">{product.description}</p>
+        <div class="hero-actions">
+          <a href={purchaseHref} class={`btn ${product.paymentLink ? '' : 'btn-disabled'}`}>{purchaseLabel}</a>
+          <a href={product.pdfPath} class="btn btn-outline" download>Download product preview</a>
+        </div>
+        <p class="medical-note">
+          This product supports education and personal reflection. It is not medical advice. Always consult your doctor or another qualified healthcare professional about your symptoms, treatment, supplements, or medication.
+        </p>
+        {!product.paymentLink && (
+          <p class="status-note" id="checkout-pending">{product.statusNote}</p>
+        )}
+      </div>
+
+      <aside class="product-panel">
+        <div>
+          <span class="panel-label">Price</span>
+          <strong class="price">{product.price}</strong>
+        </div>
+        <div>
+          <span class="panel-label">Format</span>
+          <p>{product.format}</p>
+        </div>
+        <div>
+          <span class="panel-label">Best for</span>
+          <p>{product.audience}</p>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section content-section">
+    <div class="container content-grid">
+      <div class="main-column">
+        <section class="content-card">
+          <span class="section-label">What is inside</span>
+          <h2>Everything included in {product.shortTitle}</h2>
+          <ul class="detail-list">
+            {product.includes.map((item) => <li>{item}</li>)}
+          </ul>
+        </section>
+
+        <section class="content-card">
+          <span class="section-label">What this helps you do</span>
+          <h2>What you can expect from this product</h2>
+          <ul class="detail-list">
+            {product.outcomes.map((item) => <li>{item}</li>)}
+          </ul>
+        </section>
+      </div>
+
+      <aside class="side-column">
+        <section class="content-card slim-card">
+          <span class="section-label">Perfect for</span>
+          <ul class="plain-list">
+            {product.perfectFor.map((item) => <li>{item}</li>)}
+          </ul>
+        </section>
+
+        <section class="content-card slim-card">
+          <span class="section-label">How to use it</span>
+          <ol class="steps-list">
+            <li>Download the PDF on your phone, tablet, or laptop.</li>
+            <li>Print it or fill it in digitally.</li>
+            <li>Keep your notes in one place for the next two to four weeks.</li>
+            <li>Bring your observations into the choices and conversations that matter.</li>
+          </ol>
+        </section>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section related-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Keep building your support</span>
+        <h2>Pair it with another product</h2>
+      </div>
+      <div class="related-grid">
+        {relatedProducts.map((item) => (
+          <article class="related-card">
+            <span class="related-icon">{item.icon}</span>
+            <h3>{item.shortTitle}</h3>
+            <p>{item.promise}</p>
+            <div class="related-footer">
+              <span>{item.price}</span>
+              <a href={`/shop/${item.slug}`}>View product</a>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .product-hero {
+    --product-accent: var(--color-primary);
+    padding: 4.5rem 0 4rem;
+    background: linear-gradient(180deg, color-mix(in srgb, var(--product-accent) 12%, white) 0%, var(--color-bg) 100%);
+  }
+
+  .hero-grid,
+  .content-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+    gap: 2rem;
+  }
+
+  .back-link {
+    display: inline-block;
+    margin-bottom: 1.25rem;
+    color: var(--color-text-light);
+  }
+
+  .page-label,
+  .section-label,
+  .panel-label {
+    display: inline-block;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--color-primary);
+    margin-bottom: 0.85rem;
+  }
+
+  h1 {
+    font-size: clamp(2.2rem, 4vw, 3.5rem);
+    margin-bottom: 1rem;
+  }
+
+  .lead,
+  .intro-copy,
+  .medical-note,
+  .product-panel p,
+  .related-card p {
+    color: var(--color-text-light);
+  }
+
+  .lead {
+    font-size: 1.2rem;
+    max-width: 42rem;
+  }
+
+  .intro-copy {
+    margin-top: 1rem;
+    max-width: 44rem;
+  }
+
+  .medical-note {
+    margin-top: 1rem;
+    max-width: 45rem;
+    font-size: 0.96rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.75rem;
+  }
+
+  .btn-disabled {
+    pointer-events: none;
+    opacity: 0.7;
+  }
+
+  .status-note {
+    margin-top: 0.9rem;
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+  }
+
+  .product-panel,
+  .content-card,
+  .related-card {
+    background: var(--color-white);
+    border-radius: 18px;
+    box-shadow: 0 16px 40px rgba(61, 48, 41, 0.08);
+  }
+
+  .product-panel {
+    padding: 1.75rem;
+    border-top: 4px solid var(--product-accent);
+    display: grid;
+    gap: 1.25rem;
+    align-self: start;
+  }
+
+  .price {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--color-primary);
+  }
+
+  .content-section {
+    background: var(--color-white);
+  }
+
+  .content-card {
+    padding: 2rem;
+  }
+
+  .main-column,
+  .side-column {
+    display: grid;
+    gap: 1.5rem;
+    align-content: start;
+  }
+
+  .content-card h2,
+  .section-header h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .detail-list,
+  .plain-list,
+  .steps-list {
+    display: grid;
+    gap: 0.85rem;
+    color: var(--color-text-light);
+  }
+
+  .detail-list,
+  .plain-list {
+    list-style: none;
+  }
+
+  .detail-list li,
+  .plain-list li {
+    position: relative;
+    padding-left: 1rem;
+  }
+
+  .detail-list li::before,
+  .plain-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--product-accent);
+  }
+
+  .steps-list {
+    padding-left: 1.2rem;
+  }
+
+  .related-section {
+    background: linear-gradient(180deg, var(--color-bg-alt) 0%, var(--color-bg) 100%);
+  }
+
+  .section-header {
+    margin-bottom: 1.75rem;
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .related-card {
+    padding: 1.5rem;
+  }
+
+  .related-icon {
+    font-size: 1.7rem;
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  .related-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .related-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .related-footer span {
+    font-family: var(--font-heading);
+    color: var(--color-primary);
+    font-size: 1.2rem;
+  }
+
+  @media (max-width: 900px) {
+    .hero-grid,
+    .content-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

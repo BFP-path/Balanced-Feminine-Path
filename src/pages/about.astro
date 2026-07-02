@@ -1,106 +1,154 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const pageTitle = "About Us";
+const pageTitle = 'About Dr Oluwaseun Ade-Alade';
 ---
 
-<BaseLayout title={pageTitle} description="Learn about the Balanced Feminine Path mission and the woman behind the brand.">
+<BaseLayout title={pageTitle} description="Meet Dr Oluwaseun Ade-Alade, founder of Balanced Feminine Path, and learn what guides her work.">
   <section class="about-hero">
-    <div class="container">
-      <span class="page-label">About</span>
-      <h1>Our Story</h1>
-      <p class="lead">
-        A sanctuary for women seeking alignment, healing, and authentic living.
-      </p>
+    <div class="container hero-grid">
+      <div class="hero-copy">
+        <span class="page-label">About</span>
+        <h1>Meet Dr Oluwaseun Ade-Alade</h1>
+        <p class="lead">
+          I created Balanced Feminine Path to give women a steady place for reflection, practical support, and a more grounded way to care for themselves.
+        </p>
+        <div class="hero-points">
+          <div>
+            <span class="point-label">Role</span>
+            <p>Founder of Balanced Feminine Path</p>
+          </div>
+          <div>
+            <span class="point-label">Focus</span>
+            <p>Women's wellness, rhythm, reflection, and practical support tools</p>
+          </div>
+          <div>
+            <span class="point-label">Approach</span>
+            <p>Clear guidance, gentle structure, and respect for each woman's lived experience</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="portrait-card">
+        <img src="/images/dr-oluwaseun-ade-alade.jpg" alt="Dr Oluwaseun Ade-Alade" class="portrait" />
+      </div>
     </div>
   </section>
 
   <section class="section about-content">
     <div class="container">
-      <div class="content-block">
-        <h2>The Beginning</h2>
-        <p>
-          Balanced Feminine Path was born from a personal journey—a path of self-discovery, 
-          healing, and ultimately, transformation. After years of navigating the complexities 
-          of modern womanhood, dealing with burnout, and searching for authentic connection, 
-          the need for a space like this became clear.
-        </p>
-        <p>
-          This isn't just another wellness blog. It's a carefully curated space where science 
-          meets soul, where ancient wisdom meets modern understanding, and where every woman 
-          can find resources that honor her unique journey.
-        </p>
+      <div class="content-grid">
+        <div class="main-column">
+          <section class="content-card">
+            <h2>My story</h2>
+            <p>
+              Balanced Feminine Path grew from a simple conviction: women need space to slow down,
+              understand what their bodies are telling them, and make choices from a place of clarity.
+            </p>
+            <p>
+              This platform brings together supportive writing, practical tools, and digital products for women
+              who want more steadiness in the middle of stress, hormonal change, and everyday demands.
+            </p>
+            <p>
+              My goal is to make this work feel useful. You should leave with something you can apply,
+              track, reflect on, or carry into a better conversation with your healthcare provider.
+            </p>
+          </section>
+
+          <section class="content-card">
+            <h2>What guides my work</h2>
+            <div class="values-grid">
+              <div class="value-card">
+                <span class="value-icon">♡</span>
+                <h3>Compassion</h3>
+                <p>I want women to feel supported, not judged, while they figure out what they need.</p>
+              </div>
+              <div class="value-card">
+                <span class="value-icon">☀</span>
+                <h3>Clarity</h3>
+                <p>I care about simple language, useful tools, and steps that make daily life easier.</p>
+              </div>
+              <div class="value-card">
+                <span class="value-icon">✧</span>
+                <h3>Integrity</h3>
+                <p>I take women seriously and make room for both reflection and informed care.</p>
+              </div>
+              <div class="value-card">
+                <span class="value-icon">❋</span>
+                <h3>Wholeness</h3>
+                <p>I look at wellness as something that touches body, mind, rhythm, and lived experience.</p>
+              </div>
+            </div>
+          </section>
+
+          <section class="content-card">
+            <h2>What you will find here</h2>
+            <ul class="offerings-list">
+              <li>
+                <strong>Practical resources</strong>
+                <span>Guides, trackers, reset plans, and printable tools you can use in real life.</span>
+              </li>
+              <li>
+                <strong>Support for daily rhythm</strong>
+                <span>Tools that help with routine, reflection, sleep support, and symptom awareness.</span>
+              </li>
+              <li>
+                <strong>Thoughtful wellness content</strong>
+                <span>Writing that helps you slow down, notice patterns, and make more informed choices.</span>
+              </li>
+              <li>
+                <strong>A respectful next step</strong>
+                <span>Support that helps you prepare for better decisions and better doctor conversations.</span>
+              </li>
+            </ul>
+          </section>
+        </div>
+
+        <aside class="side-column">
+          <section class="content-card short-card">
+            <h2>About me</h2>
+            <dl class="bio-list">
+              <div>
+                <dt>Name</dt>
+                <dd>Dr Oluwaseun Ade-Alade</dd>
+              </div>
+              <div>
+                <dt>Brand</dt>
+                <dd>Balanced Feminine Path</dd>
+              </div>
+              <div>
+                <dt>Work</dt>
+                <dd>Founder, wellness educator, and creator of digital support tools</dd>
+              </div>
+              <div>
+                <dt>Mission</dt>
+                <dd>To help women move with more clarity, steadiness, and self-understanding</dd>
+              </div>
+            </dl>
+          </section>
+
+          <section class="content-card short-card disclaimer-card">
+            <h2>Important note</h2>
+            <p>
+              The content on Balanced Feminine Path is for education and personal reflection. It is not medical advice.
+            </p>
+            <p>
+              Always consult your doctor or another qualified healthcare professional before making decisions about your health,
+              symptoms, treatment, supplements, or medication.
+            </p>
+          </section>
+        </aside>
       </div>
 
-      <div class="content-block">
-        <h2>Our Philosophy</h2>
+      <div class="content-card cta-block">
+        <h2>Start where you are</h2>
         <p>
-          We believe in the power of the feminine—not as a limitation, but as a profound 
-          strength. The qualities often seen as "soft" or "intuitive" are actually powerful 
-          tools for navigating life: deep feeling, creative wisdom, nurturing presence, and 
-          the ability to hold space for complexity.
-        </p>
-        <p>
-          True balance isn't about doing everything perfectly or achieving some idealized 
-          state. It's about alignment—living in accordance with your values, honoring your 
-          needs, and creating a life that feels authentic and nourishing.
-        </p>
-      </div>
-
-      <div class="values-grid">
-        <div class="value-card">
-          <span class="value-icon">♡</span>
-          <h3>Compassion</h3>
-          <p>Approaching ourselves and others with kindness and understanding.</p>
-        </div>
-        <div class="value-card">
-          <span class="value-icon">☽</span>
-          <h3>Intention</h3>
-          <p>Living with purpose and making conscious choices aligned with our values.</p>
-        </div>
-        <div class="value-card">
-          <span class="value-icon">✧</span>
-          <h3>Authenticity</h3>
-          <p>Honoring our true selves without pretense or people-pleasing.</p>
-        </div>
-        <div class="value-card">
-          <span class="value-icon">❋</span>
-          <h3>Holistic Wellness</h3>
-          <p>Recognizing the connection between mind, body, and spirit.</p>
-        </div>
-      </div>
-
-      <div class="content-block">
-        <h2>What We Offer</h2>
-        <ul class="offerings-list">
-          <li>
-            <strong>Thoughtful Articles</strong> — Deep dives into topics that matter: hormonal 
-            health, mental wellness, spiritual growth, and intentional living.
-          </li>
-          <li>
-            <strong>Practical Resources</strong> — Guides, worksheets, and tools you can 
-            actually use in your daily life.
-          </li>
-          <li>
-            <strong>Community Support</strong> — A judgment-free space where women can 
-            connect, share, and grow together.
-          </li>
-          <li>
-            <strong>Holistic Approaches</strong> — Integrating conventional wisdom with 
-            natural, evidence-based practices.
-          </li>
-        </ul>
-      </div>
-
-      <div class="content-block cta-block">
-        <h2>Join the Journey</h2>
-        <p>
-          Whether you're just beginning to explore these topics or you've been on this 
-          path for years, there's a place for you here. We're so glad you're here.
+          If you want practical support, start with the free resources or visit the shop for symptom trackers,
+          reset tools, and guided digital products.
         </p>
         <div class="cta-buttons">
-          <a href="/blog" class="btn">Explore the Blog</a>
-          <a href="/contact" class="btn btn-outline">Get in Touch</a>
+          <a href="/resources" class="btn">Explore Resources</a>
+          <a href="/shop" class="btn btn-outline">Visit the Shop</a>
         </div>
       </div>
     </div>
@@ -110,108 +158,174 @@ const pageTitle = "About Us";
 <style>
   .about-hero {
     background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-bg-alt) 100%);
-    padding: 5rem var(--spacing) 3rem;
-    text-align: center;
+    padding: 5rem 0 3rem;
+  }
+
+  .hero-grid,
+  .content-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .page-label,
+  .point-label {
+    display: inline-block;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--color-primary);
   }
 
   .page-label {
-    display: inline-block;
-    font-size: 0.875rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--color-primary);
     margin-bottom: 1rem;
   }
 
-  .about-hero h1 {
-    font-size: 3rem;
-    margin-bottom: 1.5rem;
+  h1 {
+    font-size: clamp(2.4rem, 4vw, 3.6rem);
+    margin-bottom: 1rem;
   }
 
   .lead {
-    font-size: 1.25rem;
+    font-size: 1.18rem;
     color: var(--color-text-light);
-    max-width: 600px;
-    margin: 0 auto;
+    max-width: 44rem;
+  }
+
+  .hero-points {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1.75rem;
+  }
+
+  .hero-points p {
+    color: var(--color-text-light);
+    margin-top: 0.35rem;
+  }
+
+  .portrait-card,
+  .content-card,
+  .value-card {
+    background: var(--color-white);
+    border-radius: 18px;
+    box-shadow: 0 16px 40px rgba(61, 48, 41, 0.08);
+  }
+
+  .portrait-card {
+    padding: 1rem;
+  }
+
+  .portrait {
+    width: 100%;
+    display: block;
+    border-radius: 14px;
+    object-fit: cover;
   }
 
   .about-content {
     background: var(--color-white);
   }
 
-  .content-block {
-    max-width: 800px;
-    margin: 0 auto 3rem;
+  .main-column,
+  .side-column {
+    display: grid;
+    gap: 1.5rem;
+    align-content: start;
   }
 
-  .content-block h2 {
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
+  .content-card {
+    padding: 2rem;
+  }
+
+  .content-card h2 {
+    font-size: 1.9rem;
     color: var(--color-primary);
+    margin-bottom: 1rem;
   }
 
-  .content-block p {
+  .content-card p,
+  .offerings-list span,
+  .bio-list dd {
     color: var(--color-text-light);
-    margin-bottom: 1.25rem;
+  }
+
+  .content-card p + p {
+    margin-top: 1rem;
   }
 
   .values-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    max-width: 800px;
-    margin: 3rem auto;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-top: 1.25rem;
   }
 
   .value-card {
-    text-align: center;
-    padding: 2rem;
-    background: var(--color-bg);
-    border-radius: var(--border-radius);
+    padding: 1.5rem;
   }
 
   .value-icon {
-    font-size: 2.5rem;
+    font-size: 2rem;
     display: block;
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
     color: var(--color-primary);
   }
 
   .value-card h3 {
-    font-size: 1.25rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .value-card p {
-    font-size: 0.9375rem;
-    color: var(--color-text-light);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
   }
 
   .offerings-list {
     list-style: none;
-    padding: 0;
+    display: grid;
+    gap: 1rem;
+    margin-top: 1rem;
   }
 
   .offerings-list li {
-    padding: 1rem 0;
+    padding-bottom: 1rem;
     border-bottom: 1px solid var(--color-bg-alt);
   }
 
   .offerings-list li:last-child {
     border-bottom: none;
+    padding-bottom: 0;
   }
 
   .offerings-list strong {
-    color: var(--color-primary);
     display: block;
+    color: var(--color-primary);
+    margin-bottom: 0.3rem;
+  }
+
+  .bio-list {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .bio-list dt {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-primary);
     margin-bottom: 0.25rem;
   }
 
+  .bio-list dd {
+    margin: 0;
+  }
+
+  .disclaimer-card {
+    background: linear-gradient(180deg, #fff9f5 0%, #fff 100%);
+    border: 1px solid rgba(139, 107, 93, 0.12);
+  }
+
   .cta-block {
+    margin-top: 2rem;
     text-align: center;
     background: var(--color-bg-alt);
-    padding: 3rem;
-    border-radius: var(--border-radius);
   }
 
   .cta-buttons {
@@ -222,13 +336,10 @@ const pageTitle = "About Us";
     margin-top: 1.5rem;
   }
 
-  @media (max-width: 768px) {
-    .about-hero h1 {
-      font-size: 2.25rem;
-    }
-
-    .content-block h2 {
-      font-size: 1.75rem;
+  @media (max-width: 900px) {
+    .hero-grid,
+    .content-grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>
