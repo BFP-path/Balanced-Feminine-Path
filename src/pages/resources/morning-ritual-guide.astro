@@ -1,0 +1,425 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const ritualSteps = [
+  {
+    title: 'Wake before the rush',
+    duration: '2 minutes',
+    description:
+      'Sit up slowly. Keep the phone away. Notice your breath, the light in the room, and the state of your body before you absorb anyone else’s noise.',
+  },
+  {
+    title: 'Hydrate and open the body',
+    duration: '5 minutes',
+    description:
+      'Drink a full glass of water. Roll your shoulders, stretch your spine, and loosen your hips so your body knows the day has begun.',
+  },
+  {
+    title: 'Get grounded in stillness',
+    duration: '5 minutes',
+    description:
+      'Sit in silence, pray, or breathe with intention. Count ten slow breaths or repeat a short phrase that steadies you.',
+  },
+  {
+    title: 'Set the tone on paper',
+    duration: '5 minutes',
+    description:
+      'Write three lines: what you feel, what you need, and what matters most today. Keep it honest. You are looking for clarity, not performance.',
+  },
+  {
+    title: 'Choose one nourishing action',
+    duration: '3 minutes',
+    description:
+      'Pick one act that supports your body and one act that supports your mind. That can be a real breakfast, a walk, a chapter, or ten minutes of focused work.',
+  },
+];
+
+const affirmations = [
+  'I begin this day from steadiness, not hurry.',
+  'My body deserves care before my schedule takes over.',
+  'I can move with softness and still be disciplined.',
+  'I choose what deserves my energy today.',
+];
+
+const reflectionPrompts = [
+  'What does my body need this morning?',
+  'What feeling do I want to carry into today?',
+  'What is one thing I can do that would make today feel aligned?',
+];
+---
+
+<BaseLayout
+  title="Morning Ritual Guide"
+  description="A grounded morning ritual guide from Balanced Feminine Path with a simple 20-minute routine, reflection prompts, and a printable PDF."
+>
+  <section class="guide-hero">
+    <div class="container guide-hero-inner">
+      <div class="guide-copy">
+        <span class="page-label">Free PDF Guide</span>
+        <h1>Morning Ritual Guide</h1>
+        <p class="lead">
+          Start your day with a rhythm that calms your mind, wakes up your body, and gives your spirit room to speak.
+        </p>
+        <div class="hero-actions">
+          <a href="/resources/morning-ritual-guide.pdf" class="btn" download>Download the PDF</a>
+          <a href="/resources" class="btn btn-outline">Back to Resources</a>
+        </div>
+      </div>
+
+      <aside class="guide-summary" aria-label="Guide summary">
+        <h2>Inside this guide</h2>
+        <ul>
+          <li>A simple 20-minute morning rhythm</li>
+          <li>Gentle steps you can adapt to your season</li>
+          <li>Affirmations and reflection prompts</li>
+          <li>A printable checklist for daily use</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section guide-body">
+    <div class="container guide-grid">
+      <article class="guide-main">
+        <section class="guide-section">
+          <h2>Why a morning ritual matters</h2>
+          <p>
+            The first part of your day shapes your pace. If you wake up and move straight into alerts, requests,
+            and other people’s urgency, your nervous system spends the rest of the day catching up. A ritual gives
+            you a small stretch of protected time so you can enter the day on purpose.
+          </p>
+          <p>
+            Your ritual does not need candles, a perfect playlist, or an empty house. It needs consistency. Start
+            with a few minutes you can keep, then let the practice deepen with time.
+          </p>
+        </section>
+
+        <section class="guide-section">
+          <div class="section-heading">
+            <h2>The 20-minute morning ritual</h2>
+            <span class="section-note">Keep it simple. Repeat it often.</span>
+          </div>
+
+          <div class="steps-list">
+            {ritualSteps.map((step, index) => (
+              <div class="step-card">
+                <div class="step-number">0{index + 1}</div>
+                <div>
+                  <div class="step-meta">{step.duration}</div>
+                  <h3>{step.title}</h3>
+                  <p>{step.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        <section class="guide-section">
+          <h2>If your mornings feel tight</h2>
+          <p>
+            Cut the ritual down to three anchors: water, stillness, and one written intention. Five steady minutes
+            done each day will help you more than one elaborate routine you abandon by Wednesday.
+          </p>
+          <div class="mini-ritual-card">
+            <h3>5-minute version</h3>
+            <ul>
+              <li>Drink water</li>
+              <li>Take ten slow breaths</li>
+              <li>Write one sentence: “Today I want to feel...”</li>
+            </ul>
+          </div>
+        </section>
+      </article>
+
+      <aside class="guide-sidebar">
+        <section class="sidebar-card">
+          <h2>Affirmations</h2>
+          <ul class="affirmation-list">
+            {affirmations.map((affirmation) => <li>{affirmation}</li>)}
+          </ul>
+        </section>
+
+        <section class="sidebar-card">
+          <h2>Reflection prompts</h2>
+          <ul class="prompt-list">
+            {reflectionPrompts.map((prompt) => <li>{prompt}</li>)}
+          </ul>
+        </section>
+
+        <section class="sidebar-card checklist-card">
+          <h2>Daily checklist</h2>
+          <ul class="checklist">
+            <li><span></span> I drank water before checking my phone</li>
+            <li><span></span> I gave myself a moment of stillness</li>
+            <li><span></span> I wrote down what matters today</li>
+            <li><span></span> I chose one nourishing action</li>
+          </ul>
+        </section>
+      </aside>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .guide-hero {
+    background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-bg-alt) 100%);
+    padding: 5rem var(--spacing) 4rem;
+  }
+
+  .guide-hero-inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(280px, 0.9fr);
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .page-label {
+    display: inline-block;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+  }
+
+  .guide-copy h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .lead {
+    font-size: 1.1875rem;
+    color: var(--color-text-light);
+    max-width: 680px;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .guide-summary,
+  .sidebar-card,
+  .mini-ritual-card,
+  .step-card {
+    background: var(--color-white);
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px rgba(139, 107, 93, 0.08);
+  }
+
+  .guide-summary {
+    padding: 2rem;
+  }
+
+  .guide-summary h2,
+  .sidebar-card h2,
+  .guide-section h2 {
+    margin-bottom: 1rem;
+  }
+
+  .guide-summary ul,
+  .affirmation-list,
+  .prompt-list,
+  .checklist,
+  .mini-ritual-card ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .guide-summary li,
+  .affirmation-list li,
+  .prompt-list li,
+  .mini-ritual-card li {
+    position: relative;
+    padding-left: 1.25rem;
+    margin-bottom: 0.85rem;
+    color: var(--color-text-light);
+  }
+
+  .guide-summary li::before,
+  .affirmation-list li::before,
+  .prompt-list li::before,
+  .mini-ritual-card li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+  }
+
+  .guide-body {
+    background: var(--color-white);
+  }
+
+  .guide-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(290px, 0.85fr);
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .guide-main,
+  .guide-sidebar {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .guide-section {
+    background: var(--color-bg);
+    border-radius: var(--border-radius);
+    padding: 2rem;
+  }
+
+  .guide-section p {
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+  }
+
+  .section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .section-note {
+    color: var(--color-text-light);
+    font-size: 0.9375rem;
+  }
+
+  .steps-list {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .step-card {
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 1rem;
+    padding: 1.25rem;
+  }
+
+  .step-number {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--color-bg-alt);
+    color: var(--color-primary);
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+  }
+
+  .step-meta {
+    display: inline-block;
+    margin-bottom: 0.35rem;
+    color: var(--color-primary);
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .step-card h3 {
+    margin-bottom: 0.5rem;
+  }
+
+  .step-card p {
+    margin: 0;
+  }
+
+  .mini-ritual-card,
+  .sidebar-card {
+    padding: 1.5rem;
+  }
+
+  .checklist li {
+    display: flex;
+    align-items: start;
+    gap: 0.85rem;
+    color: var(--color-text-light);
+    margin-bottom: 1rem;
+  }
+
+  .checklist span {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--color-secondary);
+    border-radius: 4px;
+    flex: 0 0 20px;
+    margin-top: 0.15rem;
+  }
+
+  @media (max-width: 900px) {
+    .guide-hero-inner,
+    .guide-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .guide-copy h1 {
+      font-size: 2.5rem;
+    }
+
+    .section-heading {
+      flex-direction: column;
+      align-items: start;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .guide-hero {
+      padding-top: 4rem;
+    }
+
+    .guide-copy h1 {
+      font-size: 2.15rem;
+    }
+
+    .guide-section,
+    .guide-summary,
+    .sidebar-card,
+    .mini-ritual-card,
+    .step-card {
+      padding: 1.25rem;
+    }
+
+    .step-card {
+      grid-template-columns: 1fr;
+    }
+
+    .step-number {
+      width: 52px;
+      height: 52px;
+      font-size: 1rem;
+    }
+  }
+
+  @media print {
+    .site-header,
+    .site-footer,
+    .hero-actions,
+    .btn {
+      display: none !important;
+    }
+
+    .guide-hero,
+    .guide-body,
+    .guide-section,
+    .guide-summary,
+    .sidebar-card,
+    .mini-ritual-card,
+    .step-card {
+      background: white !important;
+      box-shadow: none !important;
+    }
+
+    .guide-hero,
+    .guide-body {
+      padding: 0;
+    }
+  }
+</style>

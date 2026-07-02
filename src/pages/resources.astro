@@ -4,39 +4,57 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const resources = [
   {
     title: "Morning Ritual Guide",
-    description: "A printable PDF guide to creating a mindful morning practice that sets the tone for your day.",
+    description: "A printable guide to building a steady, nourishing morning practice you can actually keep.",
     type: "PDF Guide",
-    icon: "☀️"
+    icon: "☀️",
+    href: "/resources/morning-ritual-guide",
+    cta: "Open Guide",
+    available: true,
   },
   {
     title: "Cycle Tracking Worksheet",
     description: "Track your menstrual cycle phases and understand how to work with your body's natural rhythms.",
     type: "Worksheet",
-    icon: "🌙"
+    icon: "🌙",
+    href: null,
+    cta: "Coming Soon",
+    available: false,
   },
   {
     title: "Self-Care Inventory",
     description: "Discover what truly nourishes you with this comprehensive self-care assessment and planning tool.",
     type: "Assessment",
-    icon: "✿"
+    icon: "✿",
+    href: null,
+    cta: "Coming Soon",
+    available: false,
   },
   {
     title: "Guided Meditation: Grounding",
     description: "A 15-minute audio meditation to help you find calm and presence when you need it most.",
     type: "Audio",
-    icon: "🌿"
+    icon: "🌿",
+    href: null,
+    cta: "Coming Soon",
+    available: false,
   },
   {
     title: "Holistic Wellness Checklist",
     description: "Evaluate your wellness across physical, emotional, mental, and spiritual dimensions.",
     type: "Checklist",
-    icon: "❋"
+    icon: "❋",
+    href: null,
+    cta: "Coming Soon",
+    available: false,
   },
   {
     title: "Intentional Living Journal Prompts",
     description: "30 thoughtful prompts to guide your reflection and help you align your life with your values.",
     type: "Journal",
-    icon: "✧"
+    icon: "✧",
+    href: null,
+    cta: "Coming Soon",
+    available: false,
   }
 ];
 ---
@@ -56,12 +74,16 @@ const resources = [
     <div class="container">
       <div class="resources-grid">
         {resources.map(resource => (
-          <div class="resource-card">
+          <div class={`resource-card ${resource.available ? 'resource-card-live' : ''}`}>
             <span class="resource-icon">{resource.icon}</span>
             <span class="resource-type">{resource.type}</span>
             <h3 class="resource-title">{resource.title}</h3>
             <p class="resource-description">{resource.description}</p>
-            <button class="resource-btn">Coming Soon</button>
+            {resource.available ? (
+              <a href={resource.href} class="btn resource-link">{resource.cta}</a>
+            ) : (
+              <button class="resource-btn">{resource.cta}</button>
+            )}
           </div>
         ))}
       </div>
@@ -128,6 +150,11 @@ const resources = [
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
+  .resource-card-live {
+    background: linear-gradient(180deg, var(--color-bg) 0%, #fffdfb 100%);
+    border: 1px solid rgba(139, 107, 93, 0.12);
+  }
+
   .resource-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 30px rgba(139, 107, 93, 0.1);
@@ -172,6 +199,10 @@ const resources = [
     border-radius: 20px;
     font-size: 0.875rem;
     cursor: not-allowed;
+  }
+
+  .resource-link {
+    min-width: 140px;
   }
 
   .cta-resources {
