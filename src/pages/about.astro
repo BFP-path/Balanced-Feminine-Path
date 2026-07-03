@@ -350,8 +350,27 @@ const pageTitle = 'About Dr Oluwaseun Ade-Alade';
     margin-top: 1.5rem;
   }
 
+  @media (max-width: 1100px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .hero-copy,
+    .portrait-card {
+      max-width: none;
+    }
+
+    .portrait-card {
+      justify-self: stretch;
+    }
+
+    .hero-title {
+      white-space: normal;
+    }
+  }
+
   @media (max-width: 900px) {
-    .hero-grid,
     .content-grid {
       grid-template-columns: 1fr;
     }
