@@ -165,8 +165,12 @@ const pageTitle = 'About Dr Oluwaseun Ade-Alade';
   .content-grid {
     display: grid;
     grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
-    gap: 2rem;
-    align-items: start;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .hero-copy {
+    max-width: 46rem;
   }
 
   .page-label,
@@ -189,7 +193,10 @@ const pageTitle = 'About Dr Oluwaseun Ade-Alade';
 
   .hero-title {
     white-space: nowrap;
-    font-size: clamp(2rem, 3.3vw, 3.4rem);
+    font-size: clamp(1.85rem, 3vw, 3.1rem);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.15rem;
   }
 
   .lead {
@@ -219,6 +226,8 @@ const pageTitle = 'About Dr Oluwaseun Ade-Alade';
 
   .portrait-card {
     padding: 1rem;
+    max-width: 420px;
+    justify-self: end;
   }
 
   .portrait {
@@ -345,6 +354,15 @@ const pageTitle = 'About Dr Oluwaseun Ade-Alade';
     .hero-grid,
     .content-grid {
       grid-template-columns: 1fr;
+    }
+
+    .hero-copy,
+    .portrait-card {
+      max-width: none;
+    }
+
+    .portrait-card {
+      justify-self: stretch;
     }
 
     .hero-title {
