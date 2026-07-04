@@ -4,7 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 const resources = [
   {
     title: "Morning Ritual Guide",
-    description: "A printable guide to building a steady, nourishing morning practice you can actually keep.",
+    description: "A printable guide to building a steady morning practice that supports calm, focus, and nervous system relief.",
     type: "PDF Guide",
     icon: "☀️",
     href: "/resources/morning-ritual-guide",
@@ -12,26 +12,26 @@ const resources = [
     available: true,
   },
   {
-    title: "Cycle Tracking Worksheet",
-    description: "Track your menstrual cycle phases and understand how to work with your body's natural rhythms.",
+    title: "Midlife Brain Fog Checklist",
+    description: "A simple checklist to help you notice focus issues, memory slips, overwhelm, and patterns worth tracking.",
     type: "Worksheet",
-    icon: "🌙",
+    icon: "🧠",
     href: null,
     cta: "Coming Soon",
     available: false,
   },
   {
-    title: "Self-Care Inventory",
-    description: "Discover what truly nourishes you with this comprehensive self-care assessment and planning tool.",
+    title: "Doctor Prep Questions for Perimenopause",
+    description: "A clear question sheet for appointments about symptoms, cycle changes, sleep issues, mood shifts, and treatment options.",
     type: "Assessment",
-    icon: "✿",
+    icon: "✎",
     href: null,
     cta: "Coming Soon",
     available: false,
   },
   {
-    title: "Guided Meditation: Grounding",
-    description: "A 15-minute audio meditation to help you find calm and presence when you need it most.",
+    title: "Sleep Reset Audio",
+    description: "A short guided audio for women who need help winding down after restless, overstimulated days.",
     type: "Audio",
     icon: "🌿",
     href: null,
@@ -39,8 +39,8 @@ const resources = [
     available: false,
   },
   {
-    title: "Holistic Wellness Checklist",
-    description: "Evaluate your wellness across physical, emotional, mental, and spiritual dimensions.",
+    title: "Perimenopause Symptom Snapshot",
+    description: "A one-page tracker that helps you notice the symptoms affecting your energy, sleep, mood, and daily function.",
     type: "Checklist",
     icon: "❋",
     href: null,
@@ -48,8 +48,8 @@ const resources = [
     available: false,
   },
   {
-    title: "Intentional Living Journal Prompts",
-    description: "30 thoughtful prompts to guide your reflection and help you align your life with your values.",
+    title: "Journal Prompts for Midlife Overwhelm",
+    description: "Reflection prompts for women who feel unlike themselves and want language for what this season is bringing up.",
     type: "Journal",
     icon: "✧",
     href: null,
@@ -59,13 +59,13 @@ const resources = [
 ];
 ---
 
-<BaseLayout title="Resources" description="Free holistic wellness resources including guides, worksheets, meditations, and more.">
+<BaseLayout title="Resources" description="Free perimenopause resources including symptom tools, morning reset support, brain fog checklists, and appointment prep worksheets.">
   <section class="resources-hero">
     <div class="container">
       <span class="page-label">Free Tools</span>
       <h1>Resources</h1>
       <p class="lead">
-        Practical tools to support your wellness journey—downloadable guides, worksheets, and guided practices.
+        Practical tools for perimenopause, brain fog, mood shifts, sleep disruption, and daily rhythm support.
       </p>
     </div>
   </section>
@@ -87,6 +87,14 @@ const resources = [
           </div>
         ))}
       </div>
+
+      <div class="focus-note">
+        <h2>What these resources focus on</h2>
+        <p>
+          Balanced Feminine Path centers perimenopause with extra attention on brain fog, focus struggles,
+          mood shifts, overwhelm, sleep trouble, and the symptom patterns that can make midlife feel confusing.
+        </p>
+      </div>
     </div>
   </section>
 
@@ -96,8 +104,8 @@ const resources = [
         <span class="resource-type">New in the shop</span>
         <h2>Need deeper support than a free download?</h2>
         <p>
-          Explore the new digital product collection for perimenopause support, sleep help,
-          morning reset work, and midlife planning.
+          Explore the digital product collection for perimenopause support, sleep help,
+          brain fog tools, morning reset work, and midlife planning.
         </p>
         <a href="/shop" class="btn">Visit the Shop</a>
       </div>
@@ -217,6 +225,28 @@ const resources = [
 
   .cta-resources {
     background: var(--color-bg-alt);
+  }
+
+  .focus-note {
+    max-width: 760px;
+    margin: 2.5rem auto 0;
+    text-align: center;
+    background: linear-gradient(180deg, #fff 0%, #fff9f5 100%);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(139, 107, 93, 0.12);
+    box-shadow: 0 8px 24px rgba(139, 107, 93, 0.08);
+  }
+
+  .focus-note h2 {
+    font-size: 1.65rem;
+    margin-bottom: 0.85rem;
+  }
+
+  .focus-note p {
+    color: var(--color-text-light);
+    max-width: 620px;
+    margin: 0 auto;
   }
 
   .cta-card {

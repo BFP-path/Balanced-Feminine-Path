@@ -13,9 +13,42 @@ const { product } = Astro.props;
 const relatedProducts = products.filter((item) => item.slug !== product.slug).slice(0, 3);
 const purchaseHref = product.paymentLink ?? '#checkout-pending';
 const purchaseLabel = product.paymentLink ? `Buy now for ${product.price}` : 'Payment link pending';
+const canonicalUrl = `https://balancedfemininepath.com/shop/${product.slug}`;
+const metaDescription = `${product.title}. ${product.promise} Format: ${product.format}. Best for ${product.perfectFor.slice(0, 3).join(', ')}.`;
+const productSchema = JSON.stringify({
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: product.title,
+  description: metaDescription,
+  brand: {
+    '@type': 'Brand',
+    name: 'Balanced Feminine Path'
+  },
+  category: 'Perimenopause digital product',
+  url: canonicalUrl,
+  image: 'https://balancedfemininepath.com/og-image.jpg',
+  material: product.format,
+  audience: {
+    '@type': 'Audience',
+    audienceType: product.audience
+  },
+  offers: {
+    '@type': 'Offer',
+    priceCurrency: 'USD',
+    price: String(product.priceValue),
+    availability: product.paymentLink ? 'https://schema.org/InStock' : 'https://schema.org/PreOrder',
+    url: canonicalUrl,
+  }
+});
 ---
 
-<BaseLayout title={product.title} description={product.promise}>
+<BaseLayout
+  title={product.title}
+  description={metaDescription}
+  canonical={canonicalUrl}
+  ogType="product"
+  schema={productSchema}
+>
   <section class="product-hero" style={`--product-accent: ${product.accent}`}>
     <div class="container hero-grid">
       <div>

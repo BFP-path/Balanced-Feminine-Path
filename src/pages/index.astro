@@ -2,110 +2,212 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Home" description="Balanced Feminine Path - Empowering women through holistic wellness, mindfulness, and intentional living.">
-  <!-- Hero Section -->
+<BaseLayout
+  title="Home"
+  description="Perimenopause support for women dealing with brain fog, mental and physical fatigue, mood swings, overwhelm, and focus struggles."
+>
   <section class="hero">
-    <div class="hero-content">
-      <span class="hero-tagline">Welcome to</span>
-      <h1>Balanced Feminine Path</h1>
-      <p class="hero-description">
-        A sanctuary for women seeking to align with their true selves through holistic wellness, 
-        mindful practices, and intentional living. Here, you are invited to embrace your journey 
-        with compassion, wisdom, and grace.
-      </p>
-      <div class="hero-actions">
-        <a href="/shop" class="btn">Shop Digital Products</a>
-        <a href="/resources" class="btn btn-outline">Free Resources</a>
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <span class="section-label">Perimenopause support</span>
+        <h1>Midlife support.</h1>
+        <p class="hero-description">
+          Balanced Feminine Path helps you understand the changes happening in midlife and gives you practical support to feel clear, steady, and more like yourself again.
+        </p>
+        <div class="hero-actions">
+          <a href="/shop" class="btn">Shop Digital Tools</a>
+          <a href="/resources" class="btn btn-outline">Explore Free Resources</a>
+        </div>
+        <ul class="hero-points" aria-label="Balanced Feminine Path focus areas">
+          <li>Perimenopause symptom support</li>
+          <li>Brain fog and focus struggles</li>
+          <li>Mental and physical fatigue support</li>
+        </ul>
       </div>
-    </div>
-    <div class="hero-decoration">
-      <span class="hero-flower">❀</span>
+
+      <div class="hero-card">
+        <span class="card-kicker">A strong place to start</span>
+        <h2>Track your symptoms.</h2>
+        <p>
+          Use the tracker, reset plans, and guided tools to notice patterns, prepare questions, and stop guessing your way through symptoms.
+        </p>
+        <a href="/shop/perimenopause-symptom-tracker-doctor-checklist" class="card-link">Start with the Symptom Tracker</a>
+      </div>
     </div>
   </section>
 
-  <!-- Mission Section -->
-  <section class="section mission-section">
+  <section class="section signal-section">
     <div class="container">
-      <div class="mission-content">
-        <span class="section-label">Our Mission</span>
-        <h2>Nurturing the Whole Woman</h2>
+      <div class="section-title narrow">
+        <span class="section-label">If this sounds familiar</span>
+        <h2>It may be perimenopause.</h2>
         <p>
-          At Balanced Feminine Path, we believe that true wellness emerges from honoring the 
-          connection between mind, body, and spirit. Our mission is to provide thoughtful content, 
-          practical resources, and a supportive community that empowers women to live authentically.
+          Many women reach midlife feeling scattered, flat, overstimulated, mentally drained, physically tired, or unlike themselves. Hormone changes can affect focus, energy, sleep, mood, and emotional steadiness in ways that feel confusing when no one has explained the full picture.
         </p>
       </div>
+
+      <div class="signal-grid">
+        <article class="signal-card">
+          <span class="card-icon">◌</span>
+          <h3>Brain fog and forgetfulness</h3>
+          <p>You lose words, forget simple things, or feel slower than you used to.</p>
+        </article>
+        <article class="signal-card">
+          <span class="card-icon">◌</span>
+          <h3>Mental and physical fatigue</h3>
+          <p>You feel worn down, heavy, or drained even when you are trying to rest and keep going.</p>
+        </article>
+        <article class="signal-card">
+          <span class="card-icon">◌</span>
+          <h3>Mood swings, overwhelm, and stress load</h3>
+          <p>You feel irritable, tearful, anxious, or stretched thin faster than before.</p>
+        </article>
+        <article class="signal-card">
+          <span class="card-icon">◌</span>
+          <h3>Focus struggles that feel unfamiliar</h3>
+          <p>You start wondering if it is perimenopause, burnout, ADHD, or some mix of all three.</p>
+        </article>
+      </div>
     </div>
   </section>
 
-  <!-- Featured Content -->
-  <section class="section featured-section">
+  <section class="section approach-section">
+    <div class="container">
+      <div class="section-title narrow">
+        <span class="section-label">How Balanced Feminine Path helps</span>
+        <h2>Simple symptom support.</h2>
+      </div>
+
+      <div class="approach-grid">
+        <article class="approach-card">
+          <h3>Understand what is changing</h3>
+          <p>Track symptoms, spot patterns, and put words to what your body is doing.</p>
+        </article>
+        <article class="approach-card">
+          <h3>Steady your day</h3>
+          <p>Use simple tools for sleep, food, energy, morning rhythm, and nervous system support.</p>
+        </article>
+        <article class="approach-card">
+          <h3>Walk into care prepared</h3>
+          <p>Bring better notes, sharper questions, and more confidence into doctor conversations.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section offers-section">
     <div class="container">
       <div class="section-title">
-        <h2>Begin Your Journey</h2>
-        <p>Discover articles, guides, and resources designed to support your wellness journey.</p>
+        <span class="section-label">Start with the support that fits</span>
+        <h2>Choose your support.</h2>
+        <p>These products give you structure without making your life harder.</p>
       </div>
-      <div class="featured-grid">
-        <article class="featured-card">
-          <span class="card-icon">🌿</span>
-          <h3>Holistic Wellness</h3>
-          <p>Explore natural approaches to physical, emotional, and spiritual health that honor your body's wisdom.</p>
-          <a href="/blog" class="card-link">Read More →</a>
+
+      <div class="offers-grid">
+        <article class="offer-card feature-offer">
+          <span class="offer-type">Best first step</span>
+          <h3>Perimenopause Symptom Tracker and Doctor Appointment Checklist</h3>
+          <p>Track symptoms, spot patterns, and walk into doctor visits with cleaner notes and better questions.</p>
+          <a href="/shop/perimenopause-symptom-tracker-doctor-checklist" class="card-link">View product</a>
         </article>
-        <article class="featured-card">
-          <span class="card-icon">🧘‍♀️</span>
-          <h3>Mindfulness & Meditation</h3>
-          <p>Practical techniques and gentle guidance for cultivating presence and inner peace in daily life.</p>
-          <a href="/blog" class="card-link">Read More →</a>
+
+        <article class="offer-card">
+          <span class="offer-type">Daily rhythm</span>
+          <h3>Perimenopause Morning Routine for Fatigue and Focus</h3>
+          <p>Build a steadier start to the day when brain fog, fatigue, and stressful mornings keep knocking you off course.</p>
+          <a href="/shop/perimenopause-morning-routine-fatigue-focus" class="card-link">View product</a>
         </article>
-        <article class="featured-card">
-          <span class="card-icon">🌱</span>
-          <h3>Intentional Living</h3>
-          <p>Thoughtful approaches to creating a life aligned with your values, purpose, and deepest desires.</p>
-          <a href="/blog" class="card-link">Read More →</a>
+
+        <article class="offer-card">
+          <span class="offer-type">Sleep and cognition</span>
+          <h3>Perimenopause Brain Fog and Sleep Guide</h3>
+          <p>Track sleep disruption, mental fog, and hot flash patterns with a practical plan you can use right away.</p>
+          <a href="/shop/perimenopause-brain-fog-sleep-guide" class="card-link">View product</a>
+        </article>
+
+        <article class="offer-card">
+          <span class="offer-type">Food and energy</span>
+          <h3>Perimenopause Meal Plan for Energy and Mood</h3>
+          <p>Use a simpler food plan for energy crashes, cravings, mood dips, and steadier meals through the week.</p>
+          <a href="/shop/perimenopause-meal-plan-energy-mood" class="card-link">View product</a>
+        </article>
+
+        <article class="offer-card">
+          <span class="offer-type">Full reset</span>
+          <h3>4-Week Perimenopause Reset</h3>
+          <p>Bring symptoms, food, sleep, daily habits, and reflection into one guided four-week reset.</p>
+          <a href="/shop/4-week-perimenopause-reset-program" class="card-link">View product</a>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- Newsletter Section -->
-  <section class="section newsletter-section">
-    <div class="container">
-      <div class="newsletter-card">
-        <div class="newsletter-content">
-          <h2>Join Our Community</h2>
-          <p>
-            Receive weekly insights, guided meditations, and exclusive resources delivered 
-            with love directly to your inbox.
-          </p>
-          <form class="newsletter-form" action="#" method="POST">
-            <input type="email" placeholder="Enter your email address" required />
-            <button type="submit" class="btn">Subscribe</button>
-          </form>
-          <p class="newsletter-note">No spam, ever. Unsubscribe anytime.</p>
-        </div>
+  <section class="section pillars-section">
+    <div class="container pillars-grid">
+      <div class="pillars-copy">
+        <span class="section-label">What you will learn here</span>
+        <h2>Name what you feel.</h2>
+        <p>
+          Balanced Feminine Path centers perimenopause with extra attention on the symptoms that can make women feel confused, dismissed, or unlike themselves.
+        </p>
+      </div>
+
+      <div class="pillars-list">
+        <article>
+          <h3>Brain fog and focus</h3>
+          <p>Clarity around forgetfulness, scattered thinking, and ADHD-like symptoms in midlife.</p>
+        </article>
+        <article>
+          <h3>Mood and emotional regulation</h3>
+          <p>Support for irritability, anxiety, tears, and feeling stretched too thin.</p>
+        </article>
+        <article>
+          <h3>Sleep and nervous system load</h3>
+          <p>Tools for night waking, restless sleep, and the stress loop that keeps symptoms going.</p>
+        </article>
+        <article>
+          <h3>Body literacy</h3>
+          <p>Help noticing patterns, tracking symptoms, and preparing for better care conversations.</p>
+        </article>
+        <article>
+          <h3>Midlife identity and self-trust</h3>
+          <p>Support for women who want to feel steady, informed, and more at home in their bodies again.</p>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- About Preview -->
   <section class="section about-preview">
+    <div class="container about-grid">
+      <div class="about-text">
+        <span class="section-label">About Dr Oluwaseun Ade-Alade</span>
+        <h2>Meet Dr Oluwaseun.</h2>
+        <p>
+          Dr Oluwaseun Ade-Alade created Balanced Feminine Path to help women make sense of midlife changes with calm guidance, useful tools, and support they can apply in real life.
+        </p>
+        <p>
+          This work gives women a better way to track symptoms, rebuild daily rhythm, and prepare for stronger conversations with their healthcare providers.
+        </p>
+        <a href="/about" class="btn btn-outline">Learn More</a>
+      </div>
+
+      <div class="about-image-card">
+        <img src="/images/dr-oluwaseun-ade-alade.jpg" alt="Dr Oluwaseun Ade-Alade" class="about-image" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section next-step-section">
     <div class="container">
-      <div class="about-grid">
-        <div class="about-text">
-          <span class="section-label">About Us</span>
-          <h2>A Safe Space for Your Growth</h2>
-          <p>
-            Balanced Feminine Path was created from a deep desire to support women on their 
-            unique journeys toward wholeness. We understand the challenges of modern life and 
-            the importance of creating space for self-care, reflection, and transformation.
-          </p>
-          <a href="/about" class="btn btn-outline">Learn More About Us</a>
-        </div>
-        <div class="about-image">
-          <div class="image-placeholder">
-            <span>✿</span>
-          </div>
+      <div class="next-step-card">
+        <span class="section-label">A clear next step</span>
+        <h2>Start here.</h2>
+        <p>
+          The content on Balanced Feminine Path supports education and personal reflection. It does not replace medical care. Always consult your doctor or another qualified healthcare professional about symptoms, treatment, supplements, or medication.
+        </p>
+        <div class="hero-actions centered">
+          <a href="/resources" class="btn">Free Resources</a>
+          <a href="/shop" class="btn btn-outline">Visit the Shop</a>
         </div>
       </div>
     </div>
@@ -113,258 +215,266 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 </BaseLayout>
 
 <style>
-  /* Hero Styles */
-  .hero {
-    min-height: 85vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  .hero,
+  .pillars-section {
     background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-bg-alt) 100%);
-    padding: 4rem var(--spacing);
-    position: relative;
-    overflow: hidden;
+  }
+
+  .hero {
+    padding: 5rem 0 4rem;
+  }
+
+  .hero-grid,
+  .about-grid,
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(300px, 0.8fr);
+    gap: 2rem;
+    align-items: center;
   }
 
   .hero-content {
-    max-width: 700px;
-    text-align: center;
-    position: relative;
-    z-index: 1;
+    max-width: 44rem;
   }
 
-  .hero-tagline {
-    display: block;
-    font-size: 1rem;
+  .section-label,
+  .offer-type,
+  .card-kicker {
+    display: inline-block;
+    font-size: 0.82rem;
     text-transform: uppercase;
-    letter-spacing: 3px;
+    letter-spacing: 0.16em;
     color: var(--color-primary);
     margin-bottom: 1rem;
   }
 
-  .hero h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1.5rem;
-    color: var(--color-text);
+  .hero h1,
+  .section-title h2,
+  .about-text h2,
+  .pillars-copy h2,
+  .next-step-card h2 {
+    font-size: clamp(2.25rem, 4vw, 3.7rem);
+    margin-bottom: 1rem;
+    line-height: 1.12;
+  }
+
+  .hero-description,
+  .section-title p,
+  .signal-card p,
+  .approach-card p,
+  .offer-card p,
+  .pillars-list p,
+  .about-text p,
+  .next-step-card p {
+    color: var(--color-text-light);
   }
 
   .hero-description {
-    font-size: 1.25rem;
-    color: var(--color-text-light);
-    margin-bottom: 2.5rem;
-    line-height: 1.8;
+    font-size: 1.15rem;
+    max-width: 40rem;
   }
 
   .hero-actions {
     display: flex;
-    gap: 1rem;
-    justify-content: center;
     flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.75rem;
   }
 
-  .hero-decoration {
-    position: absolute;
-    right: 10%;
-    top: 50%;
-    transform: translateY(-50%);
-    opacity: 0.1;
-  }
-
-  .hero-flower {
-    font-size: 20rem;
-    color: var(--color-primary);
-  }
-
-  /* Mission Section */
-  .mission-section {
-    background: var(--color-white);
-  }
-
-  .mission-content {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-  }
-
-  .section-label {
-    display: inline-block;
-    font-size: 0.875rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: var(--color-primary);
-    margin-bottom: 1rem;
-  }
-
-  .mission-content h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .mission-content p {
-    font-size: 1.125rem;
-    color: var(--color-text-light);
-  }
-
-  /* Featured Grid */
-  .featured-grid {
+  .hero-points {
+    list-style: none;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
   }
 
-  .featured-card {
-    background: var(--color-white);
-    padding: 2.5rem;
-    border-radius: var(--border-radius);
-    box-shadow: 0 4px 20px rgba(139, 107, 93, 0.08);
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-
-  .featured-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 30px rgba(139, 107, 93, 0.15);
-  }
-
-  .card-icon {
-    font-size: 3rem;
-    display: block;
-    margin-bottom: 1.5rem;
-  }
-
-  .featured-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-  }
-
-  .featured-card p {
+  .hero-points li {
+    position: relative;
+    padding-left: 1.1rem;
     color: var(--color-text-light);
-    margin-bottom: 1.5rem;
+  }
+
+  .hero-points li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+  }
+
+  .hero-card,
+  .signal-card,
+  .approach-card,
+  .offer-card,
+  .about-image-card,
+  .next-step-card {
+    background: var(--color-white);
+    border-radius: 20px;
+    box-shadow: 0 16px 40px rgba(61, 48, 41, 0.08);
+  }
+
+  .hero-card,
+  .next-step-card {
+    padding: 2rem;
+    border: 1px solid rgba(139, 107, 93, 0.12);
+  }
+
+  .hero-card h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.75rem;
   }
 
   .card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
     font-weight: 600;
+    margin-top: 1.25rem;
   }
 
-  /* Newsletter Section */
-  .newsletter-section {
-    background: var(--color-bg-alt);
+  .section {
+    padding: 4.5rem 0;
   }
 
-  .newsletter-card {
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: center;
-    background: var(--color-white);
-    padding: 3rem;
-    border-radius: var(--border-radius);
-    box-shadow: 0 4px 20px rgba(139, 107, 93, 0.08);
-  }
-
-  .newsletter-content h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-
-  .newsletter-content > p {
-    color: var(--color-text-light);
-    margin-bottom: 1.5rem;
-  }
-
-  .newsletter-form {
-    display: flex;
-    gap: 0.5rem;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .newsletter-form input {
-    flex: 1;
-    min-width: 250px;
-    padding: 0.875rem 1rem;
-    border: 2px solid var(--color-bg-alt);
-    border-radius: var(--border-radius);
-    font-size: 1rem;
-    font-family: var(--font-body);
-    transition: border-color 0.3s ease;
-  }
-
-  .newsletter-form input:focus {
-    outline: none;
-    border-color: var(--color-primary);
-  }
-
-  .newsletter-note {
-    font-size: 0.875rem;
-    color: var(--color-text-light);
-    margin-top: 1rem;
-  }
-
-  /* About Preview */
+  .signal-section,
   .about-preview {
     background: var(--color-white);
   }
 
-  .about-grid {
+  .offers-section,
+  .next-step-section {
+    background: var(--color-bg-alt);
+  }
+
+  .section-title {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .section-title.narrow {
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .signal-grid,
+  .approach-grid,
+  .offers-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
+    gap: 1.5rem;
   }
 
-  .about-text h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
+  .signal-grid,
+  .approach-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   }
 
-  .about-text p {
-    color: var(--color-text-light);
-    margin-bottom: 1.5rem;
+  .offers-grid {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  }
+
+  .signal-card,
+  .approach-card,
+  .offer-card {
+    padding: 1.75rem;
+    border: 1px solid rgba(139, 107, 93, 0.1);
+  }
+
+  .feature-offer {
+    background: linear-gradient(180deg, #fff 0%, #fff8f2 100%);
+    border-color: rgba(139, 107, 93, 0.18);
+  }
+
+  .card-icon {
+    font-size: 1.5rem;
+    color: var(--color-accent);
+    display: inline-block;
+    margin-bottom: 0.75rem;
+  }
+
+  .signal-card h3,
+  .approach-card h3,
+  .offer-card h3,
+  .pillars-list h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.65rem;
+  }
+
+  .pillars-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+
+  .pillars-list article {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid rgba(139, 107, 93, 0.12);
+    border-radius: 18px;
+    padding: 1.35rem;
+  }
+
+  .about-text {
+    max-width: 42rem;
+  }
+
+  .about-text p + p {
+    margin-top: 1rem;
+  }
+
+  .about-image-card {
+    padding: 1rem;
+    max-width: 420px;
+    justify-self: end;
   }
 
   .about-image {
-    display: flex;
+    display: block;
+    width: 100%;
+    border-radius: 16px;
+    object-fit: cover;
+  }
+
+  .next-step-card {
+    max-width: 780px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .centered {
     justify-content: center;
   }
 
-  .image-placeholder {
-    width: 300px;
-    height: 300px;
-    background: var(--color-bg-alt);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 6rem;
-    color: var(--color-primary);
-  }
-
-  /* Responsive */
-  @media (max-width: 768px) {
-    .hero h1 {
-      font-size: 2.5rem;
-    }
-
-    .hero-description {
-      font-size: 1.125rem;
-    }
-
-    .hero-decoration {
-      display: none;
-    }
-
-    .about-grid {
+  @media (max-width: 900px) {
+    .hero-grid,
+    .about-grid,
+    .pillars-grid {
       grid-template-columns: 1fr;
-      gap: 2rem;
     }
 
-    .about-image {
-      order: -1;
+    .about-image-card {
+      justify-self: start;
+      max-width: 360px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero {
+      padding-top: 4rem;
     }
 
-    .image-placeholder {
-      width: 200px;
-      height: 200px;
-      font-size: 4rem;
+    .hero h1,
+    .section-title h2,
+    .about-text h2,
+    .pillars-copy h2,
+    .next-step-card h2 {
+      font-size: 2.2rem;
+    }
+
+    .hero-card,
+    .signal-card,
+    .approach-card,
+    .offer-card,
+    .next-step-card {
+      padding: 1.4rem;
     }
   }
 </style>
