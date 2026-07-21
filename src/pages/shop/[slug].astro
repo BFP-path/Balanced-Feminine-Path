@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { products } from '../../data/products';
+import { lifestyleMedicinePillars, products } from '../../data/products';
 
 export function getStaticPaths() {
   return products.map((product) => ({
@@ -10,11 +10,19 @@ export function getStaticPaths() {
 }
 
 const { product } = Astro.props;
-const relatedProducts = products.filter((item) => item.slug !== product.slug).slice(0, 3);
+const primaryPillar = lifestyleMedicinePillars.find((pillar) => pillar.key === product.primaryPillar);
+const relatedProducts = products
+  .filter((item) => item.slug !== product.slug)
+  .sort((a, b) => {
+    const aScore = a.primaryPillar === product.primaryPillar ? 0 : 1;
+    const bScore = b.primaryPillar === product.primaryPillar ? 0 : 1;
+    return aScore - bScore;
+  })
+  .slice(0, 3);
 const purchaseHref = product.paymentLink ?? '#checkout-pending';
 const purchaseLabel = product.paymentLink ? `Buy now for ${product.price}` : 'Payment link pending';
 const canonicalUrl = `https://balancedfemininepath.com/shop/${product.slug}`;
-const metaDescription = `${product.title}. ${product.promise} Format: ${product.format}. Best for ${product.perfectFor.slice(0, 3).join(', ')}.`;
+const metaDescription = `${product.title}. ${product.promise} Format: ${product.format}. Primary pillar: ${primaryPillar?.name ?? 'Lifestyle medicine'}.`;
 const productSchema = JSON.stringify({
   '@context': 'https://schema.org',
   '@type': 'Product',
@@ -24,7 +32,7 @@ const productSchema = JSON.stringify({
     '@type': 'Brand',
     name: 'Balanced Feminine Path'
   },
-  category: 'Perimenopause digital product',
+  category: primaryPillar?.name ?? 'Perimenopause digital product',
   url: canonicalUrl,
   image: 'https://balancedfemininepath.com/og-image.jpg',
   material: product.format,
@@ -53,7 +61,10 @@ const productSchema = JSON.stringify({
     <div class="container hero-grid">
       <div>
         <a href="/shop" class="back-link">← Back to the shop</a>
-        <span class="page-label">Digital product</span>
+        <div class="hero-pills">
+          <span class="page-label">Digital product</span>
+          {primaryPillar && <span class="pillar-pill">{primaryPillar.name}</span>}
+        </div>
         <h1>{product.title}</h1>
         <p class="lead">{product.promise}</p>
         <p class="intro-copy">{product.description}</p>
@@ -82,6 +93,12 @@ const productSchema = JSON.stringify({
           <span class="panel-label">Best for</span>
           <p>{product.audience}</p>
         </div>
+        {primaryPillar && (
+          <div>
+            <span class="panel-label">Primary pillar</span>
+            <p>{primaryPillar.name}</p>
+          </div>
+        )}
       </aside>
     </div>
   </section>
@@ -115,12 +132,23 @@ const productSchema = JSON.stringify({
         </section>
 
         <section class="content-card slim-card">
+          <span class="section-label">Lifestyle medicine fit</span>
+          <div class="support-pills">
+            {primaryPillar && <span class="support-pill primary">Primary: {primaryPillar.name}</span>}
+            {product.supportPillars.map((support) => {
+              const pillar = lifestyleMedicinePillars.find((item) => item.key === support);
+              return <span class="support-pill">Also supports {pillar?.name ?? support}</span>;
+            })}
+          </div>
+        </section>
+
+        <section class="content-card slim-card">
           <span class="section-label">How to use it</span>
           <ol class="steps-list">
             <li>Download the PDF on your phone, tablet, or laptop.</li>
             <li>Print it or fill it in digitally.</li>
-            <li>Keep your notes in one place for the next two to four weeks.</li>
-            <li>Bring your observations into the choices and conversations that matter.</li>
+            <li>Use the prompts for the next one to four weeks.</li>
+            <li>Bring your notes into the choices and conversations that matter.</li>
           </ol>
         </section>
       </aside>
@@ -134,17 +162,21 @@ const productSchema = JSON.stringify({
         <h2>Pair it with another product</h2>
       </div>
       <div class="related-grid">
-        {relatedProducts.map((item) => (
-          <article class="related-card">
-            <span class="related-icon">{item.icon}</span>
-            <h3>{item.shortTitle}</h3>
-            <p>{item.promise}</p>
-            <div class="related-footer">
-              <span>{item.price}</span>
-              <a href={`/shop/${item.slug}`}>View product</a>
-            </div>
-          </article>
-        ))}
+        {relatedProducts.map((item) => {
+          const relatedPillar = lifestyleMedicinePillars.find((pillar) => pillar.key === item.primaryPillar);
+          return (
+            <article class="related-card">
+              <span class="related-icon">{item.icon}</span>
+              <span class="related-pill">{relatedPillar?.name ?? 'Support'}</span>
+              <h3>{item.shortTitle}</h3>
+              <p>{item.promise}</p>
+              <div class="related-footer">
+                <span>{item.price}</span>
+                <a href={`/shop/${item.slug}`}>View product</a>
+              </div>
+            </article>
+          );
+        })}
       </div>
     </div>
   </section>
@@ -170,15 +202,44 @@ const productSchema = JSON.stringify({
     color: var(--color-text-light);
   }
 
+  .hero-pills,
+  .support-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
+  .page-label,
+  .section-label,
+  .panel-label,
+  .pillar-pill,
+  .support-pill,
+  .related-pill {
+    display: inline-block;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
   .page-label,
   .section-label,
   .panel-label {
-    display: inline-block;
-    font-size: 0.78rem;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
     color: var(--color-primary);
     margin-bottom: 0.85rem;
+  }
+
+  .pillar-pill,
+  .support-pill,
+  .related-pill {
+    border-radius: 999px;
+    padding: 0.42rem 0.72rem;
+    background: rgba(255, 255, 255, 0.7);
+    color: var(--color-text-light);
+  }
+
+  .support-pill.primary {
+    background: color-mix(in srgb, var(--product-accent) 14%, white);
+    color: var(--color-text);
   }
 
   h1 {
@@ -263,13 +324,6 @@ const productSchema = JSON.stringify({
   .side-column {
     display: grid;
     gap: 1.5rem;
-    align-content: start;
-  }
-
-  .content-card h2,
-  .section-header h2 {
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
   }
 
   .detail-list,
@@ -278,29 +332,7 @@ const productSchema = JSON.stringify({
     display: grid;
     gap: 0.85rem;
     color: var(--color-text-light);
-  }
-
-  .detail-list,
-  .plain-list {
-    list-style: none;
-  }
-
-  .detail-list li,
-  .plain-list li {
-    position: relative;
-    padding-left: 1rem;
-  }
-
-  .detail-list li::before,
-  .plain-list li::before {
-    content: '•';
-    position: absolute;
-    left: 0;
-    color: var(--product-accent);
-  }
-
-  .steps-list {
-    padding-left: 1.2rem;
+    padding-left: 1.1rem;
   }
 
   .related-section {
@@ -308,28 +340,23 @@ const productSchema = JSON.stringify({
   }
 
   .section-header {
-    margin-bottom: 1.75rem;
+    margin-bottom: 1.5rem;
   }
 
   .related-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 1.25rem;
   }
 
   .related-card {
     padding: 1.5rem;
+    display: grid;
+    gap: 0.75rem;
   }
 
   .related-icon {
-    font-size: 1.7rem;
-    display: block;
-    margin-bottom: 0.75rem;
-  }
-
-  .related-card h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.6rem;
+    font-size: 1.8rem;
   }
 
   .related-footer {
@@ -337,13 +364,7 @@ const productSchema = JSON.stringify({
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
-    margin-top: 1rem;
-  }
-
-  .related-footer span {
-    font-family: var(--font-heading);
-    color: var(--color-primary);
-    font-size: 1.2rem;
+    margin-top: 0.5rem;
   }
 
   @media (max-width: 900px) {

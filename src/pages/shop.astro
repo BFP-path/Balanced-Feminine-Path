@@ -1,29 +1,33 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { products } from '../data/products';
+import { lifestyleMedicinePillars, products } from '../data/products';
 
-const featuredProduct = products[0];
+const featuredProduct = products.find((product) => product.slug === 'rested-and-radiant-sleep-kit') ?? products[0];
+const groupedProducts = lifestyleMedicinePillars.map((pillar) => ({
+  ...pillar,
+  items: products.filter((product) => product.primaryPillar === pillar.key)
+}));
 ---
 
 <BaseLayout
   title="Shop"
-  description="Digital wellness products for perimenopause support, brain fog, mental and physical fatigue, symptom tracking, sleep support, and midlife reset work."
+  description="Digital wellness products for perimenopause support, sleep, stress regulation, food planning, symptom tracking, ADHD planning, GLP-1 support, and midlife reset work."
 >
   <section class="shop-hero">
     <div class="container hero-grid">
       <div>
         <span class="page-label">Digital Products</span>
-        <h1>Support for the season you are in right now.</h1>
+        <h1>Shop by the six pillars of lifestyle medicine.</h1>
         <p class="lead">
-          Straightforward tools for perimenopause, brain fog, mental and physical fatigue, sleep support, and midlife reset work.
+          The shop now groups every product by nutrition, physical activity, restorative sleep, stress management, social connection, and avoidance of risky substances.
         </p>
         <div class="hero-actions">
-          <a href="#catalog" class="btn">Browse the Collection</a>
-          <a href={`/shop/${featuredProduct.slug}`} class="btn btn-outline">Start with the Tracker</a>
+          <a href="#pillar-catalog" class="btn">Browse by Pillar</a>
+          <a href={`/shop/${featuredProduct.slug}`} class="btn btn-outline">Start with the Sleep Kit</a>
         </div>
       </div>
       <div class="hero-card">
-        <span class="hero-card-label">Most practical first step</span>
+        <span class="hero-card-label">Featured product</span>
         <h2>{featuredProduct.shortTitle}</h2>
         <p>{featuredProduct.promise}</p>
         <div class="hero-card-footer">
@@ -34,40 +38,70 @@ const featuredProduct = products[0];
     </div>
   </section>
 
-  <section class="section shop-section" id="catalog">
+  <section class="section shop-section" id="pillar-catalog">
     <div class="container">
       <div class="section-intro">
         <span class="page-label">Shop the Collection</span>
-        <h2>Choose the tool that matches what your body needs.</h2>
+        <h2>Choose the support that matches your season.</h2>
         <p>
-          Every product includes guided pages you can print, use on a tablet, or revisit when brain fog, fatigue, sleep disruption, or other symptoms shift.
+          Each product now includes a fuller preview workbook and sits inside the lifestyle medicine pillar it supports most.
         </p>
         <p class="shop-disclaimer">
           These tools support education and personal reflection. They do not replace medical care. Always consult your doctor or another qualified healthcare professional about symptoms, treatment, supplements, or medication.
         </p>
       </div>
 
-      <div class="product-grid">
-        {products.map((product) => (
-          <article class="product-card" style={`--product-accent: ${product.accent}`}>
-            <div class="product-top">
-              <span class="product-icon">{product.icon}</span>
-              <span class="product-format">{product.format}</span>
-            </div>
-            <h3>{product.shortTitle}</h3>
-            <p class="product-promise">{product.promise}</p>
-            <p class="product-audience">{product.audience}</p>
-            <ul class="product-list">
-              {product.includes.slice(0, 4).map((item) => <li>{item}</li>)}
-            </ul>
-            <div class="product-footer">
+      <div class="pillar-nav" aria-label="Lifestyle medicine pillars">
+        {lifestyleMedicinePillars.map((pillar) => (
+          <a href={`#${pillar.key}`} class="pillar-chip">{pillar.name}</a>
+        ))}
+      </div>
+
+      <div class="pillar-sections">
+        {groupedProducts.map((pillar) => (
+          <section id={pillar.key} class="pillar-group">
+            <div class="pillar-header">
               <div>
-                <span class="price-label">Price</span>
-                <span class="price">{product.price}</span>
+                <span class="page-label">Lifestyle medicine pillar</span>
+                <h2>{pillar.name}</h2>
               </div>
-              <a href={`/shop/${product.slug}`} class="btn">View product</a>
+              <p>{pillar.summary}</p>
             </div>
-          </article>
+
+            <div class="product-grid">
+              {pillar.items.map((product) => (
+                <article class="product-card" style={`--product-accent: ${product.accent}`}>
+                  <div class="product-top">
+                    <span class="product-icon">{product.icon}</span>
+                    <span class="product-format">{product.format}</span>
+                  </div>
+                  <div class="product-meta">
+                    <span class="primary-pill">{pillar.name}</span>
+                    <span class="support-pill-count">+{product.supportPillars.length} support areas</span>
+                  </div>
+                  <h3>{product.shortTitle}</h3>
+                  <p class="product-promise">{product.promise}</p>
+                  <p class="product-audience">{product.audience}</p>
+                  <ul class="product-list">
+                    {product.includes.slice(0, 5).map((item) => <li>{item}</li>)}
+                  </ul>
+                  <div class="support-pills">
+                    {product.supportPillars.map((support) => {
+                      const matchingPillar = lifestyleMedicinePillars.find((item) => item.key === support);
+                      return <span class="support-pill">Also supports {matchingPillar?.name ?? support}</span>;
+                    })}
+                  </div>
+                  <div class="product-footer">
+                    <div>
+                      <span class="price-label">Price</span>
+                      <span class="price">{product.price}</span>
+                    </div>
+                    <a href={`/shop/${product.slug}`} class="btn">View product</a>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </section>
         ))}
       </div>
     </div>
@@ -75,28 +109,28 @@ const featuredProduct = products[0];
 
   <section class="section comparison-section">
     <div class="container comparison-card">
-      <span class="page-label">Need a simple starting point?</span>
-      <h2>Start with the product that matches your main symptom.</h2>
+      <span class="page-label">Need a quick starting point?</span>
+      <h2>Pick the product that fits your main need first.</h2>
       <div class="comparison-grid">
         <div>
-          <h3>Tracking symptoms</h3>
-          <p>Choose the Perimenopause Symptom Tracker and Doctor Appointment Checklist.</p>
+          <h3>Sleep support</h3>
+          <p>Start with the Rested and Radiant Sleep Kit or the Brain Fog and Sleep Guide.</p>
         </div>
         <div>
-          <h3>Fatigue and focus in the morning</h3>
-          <p>Choose the Perimenopause Morning Routine for Fatigue and Focus.</p>
+          <h3>Stress and overwhelm</h3>
+          <p>Start with the Perimenopause SOS Kit or the Calm My Hormones Audio Library.</p>
         </div>
         <div>
-          <h3>Sleep and brain fog</h3>
-          <p>Choose the Perimenopause Brain Fog and Sleep Guide.</p>
+          <h3>Food, energy, and weight support</h3>
+          <p>Start with the Meal Plan for Energy and Mood or the Energy and Weight Rebalance Kit.</p>
         </div>
         <div>
-          <h3>Food, energy, and mood</h3>
-          <p>Choose the Perimenopause Meal Plan for Energy and Mood.</p>
+          <h3>Planning and doctor visits</h3>
+          <p>Start with the Symptom Tracker and Doctor Checklist or the ADHD Planner for Perimenopause.</p>
         </div>
         <div>
-          <h3>Complete four-week reset</h3>
-          <p>Choose the 4-Week Perimenopause Reset Program.</p>
+          <h3>One full reset</h3>
+          <p>Start with the 4-Week Perimenopause Reset if you want one guided structure.</p>
         </div>
       </div>
     </div>
@@ -127,16 +161,18 @@ const featuredProduct = products[0];
 
   .shop-hero h1,
   .section-intro h2,
+  .pillar-header h2,
   .comparison-card h2 {
     font-size: clamp(2.25rem, 4vw, 3.6rem);
     margin-bottom: 1rem;
   }
 
   .lead,
-  .section-intro p {
-    max-width: 42rem;
+  .section-intro p,
+  .pillar-header p {
+    max-width: 44rem;
     color: var(--color-text-light);
-    font-size: 1.1rem;
+    font-size: 1.08rem;
   }
 
   .shop-disclaimer {
@@ -152,7 +188,8 @@ const featuredProduct = products[0];
   }
 
   .hero-card,
-  .comparison-card {
+  .comparison-card,
+  .pillar-group {
     background: var(--color-white);
     border-radius: 20px;
     box-shadow: 0 20px 50px rgba(61, 48, 41, 0.08);
@@ -203,7 +240,46 @@ const featuredProduct = products[0];
   }
 
   .section-intro {
+    margin-bottom: 1.8rem;
+  }
+
+  .pillar-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
     margin-bottom: 2rem;
+  }
+
+  .pillar-chip,
+  .support-pill,
+  .primary-pill,
+  .support-pill-count {
+    border-radius: 999px;
+    padding: 0.45rem 0.8rem;
+    font-size: 0.84rem;
+  }
+
+  .pillar-chip {
+    background: var(--color-bg-alt);
+    color: var(--color-text);
+    border: 1px solid rgba(139, 107, 93, 0.12);
+  }
+
+  .pillar-sections {
+    display: grid;
+    gap: 2rem;
+  }
+
+  .pillar-group {
+    padding: 2rem;
+  }
+
+  .pillar-header {
+    display: grid;
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    gap: 1.5rem;
+    align-items: end;
+    margin-bottom: 1.75rem;
   }
 
   .product-grid {
@@ -242,6 +318,24 @@ const featuredProduct = products[0];
     text-align: right;
   }
 
+  .product-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .primary-pill {
+    background: color-mix(in srgb, var(--product-accent) 14%, white);
+    color: var(--color-text);
+  }
+
+  .support-pill-count,
+  .support-pill {
+    background: var(--color-bg-alt);
+    color: var(--color-text-light);
+  }
+
   .product-card h3 {
     font-size: 1.35rem;
     margin-bottom: 0.75rem;
@@ -278,6 +372,13 @@ const featuredProduct = products[0];
     color: var(--product-accent);
   }
 
+  .support-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
   .product-footer {
     margin-top: auto;
     padding-top: 1.25rem;
@@ -304,7 +405,8 @@ const featuredProduct = products[0];
   }
 
   @media (max-width: 900px) {
-    .hero-grid {
+    .hero-grid,
+    .pillar-header {
       grid-template-columns: 1fr;
     }
   }
