@@ -70,7 +70,6 @@ const productSchema = JSON.stringify({
         <p class="intro-copy">{product.description}</p>
         <div class="hero-actions">
           <a href={purchaseHref} class={`btn ${product.paymentLink ? '' : 'btn-disabled'}`}>{purchaseLabel}</a>
-          <a href={product.pdfPath} class="btn btn-outline" download>Download product preview</a>
         </div>
         <p class="medical-note">
           This product supports education and personal reflection. It is not medical advice. Always consult your doctor or another qualified healthcare professional about your symptoms, treatment, supplements, or medication.
